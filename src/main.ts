@@ -6,5 +6,3 @@
 export function SayHello(name: string): string {
   return `Hi, ${name}! I'm your new neighbor. `;
 }
-
-SayHello("Tesingo");
