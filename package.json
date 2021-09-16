@@ -1,0 +1,31 @@
+{
+  "name": "weixin-sdk",
+  "version": "1.0.0",
+  "description": "微信JS-SDK",
+  "main": "dist/main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "tsc --build tsconfig.prod.json",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silkjs/weixin-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silkjs/weixin-sdk/issues"
+  },
+  "homepage": "https://github.com/silkjs/weixin-sdk#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "typescript": "^4.4.3"
+  }
+}

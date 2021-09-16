@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "quotes": ["error", "double"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "eqeqeq": "error",
+    "no-empty-function": "error",
+    "no-eq-null": "error",
+    "radix": "error",
+    // "no-shadow": ["error", { "hoist": "all" }],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"]
+  }
+}
