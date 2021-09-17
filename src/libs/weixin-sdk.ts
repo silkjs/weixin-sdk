@@ -1,9 +1,10 @@
 import { WeiXinSdkCore } from "./core";
+import { RefreshFn } from "../models/weixin.model";
 
 export class WeiXinSdk extends WeiXinSdkCore {
-  // constructor(wx: any) {
-  //   super(wx);
-  // }
+  constructor(options: { refresh: RefreshFn }) {
+    super(options);
+  }
   SayHello(name: string, from: string): string {
     return `Hi, ${name}! I'm your new neighbor, my name is ${from}`;
   }

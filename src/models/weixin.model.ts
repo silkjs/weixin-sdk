@@ -43,11 +43,16 @@ export type Tags =
   | "wx-open-subscribe" // 服务号订阅通知
   | "wx-open-audio"; // 音频播放
 
-export interface Configs {
+interface WeiXinSignature {
   appId: string; // 公众号的唯一标识
   timestamp: string; // 生成签名的时间戳
   nonceStr: string; // 生成签名的随机串
   signature: string; // 签名
+  url: string; // 地址链接
+}
+export interface Configs extends WeiXinSignature {
   jsApiList: Apis[]; // 需要使用的JS接口列表
   openTagList?: Tags[];
 }
+
+export type RefreshFn = (url: string) => Promise<WeiXinSignature>;

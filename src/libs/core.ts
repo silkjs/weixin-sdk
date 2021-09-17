@@ -1,13 +1,15 @@
-import { Apis, Configs } from "../models/weixin.model";
+import { Apis, Configs, RefreshFn } from "../models/weixin.model";
 
 type CommandOptions = {
   [key: string]: any;
 };
 
 export class WeiXinSdkCore {
-  private readonly _wx: any;
-  constructor(wx: any) {
-    this._wx = wx;
+  private readonly _wx = Reflect.get(window, "wx") ?? {};
+  private readonly refresh: RefreshFn;
+
+  constructor(options: { refresh: RefreshFn }) {
+    this.refresh = options.refresh;
   }
   /**
    * 通过config接口注入权限验证配置
@@ -50,6 +52,11 @@ export class WeiXinSdkCore {
       });
     });
   }
+  /**
+   * 微信SDK通用接口调用
+   * @param action 接口名称
+   * @param options 接口参数
+   */
   command<T = void>(action: Apis, options?: CommandOptions): Promise<T> {
     return new Promise<T>((resolve, reject) => {
       this._wx[action]({
