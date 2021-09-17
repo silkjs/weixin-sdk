@@ -1,8 +1,13 @@
 {
   "name": "@silkjs/weixin-sdk",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "微信JS-SDK",
-  "main": "dist/main.js",
+  "type": "module",
+  "main": "./dist/main.js",
+  "exports": {
+    ".": "./dist/main.js",
+    "./": "./dist/"
+  },
   "directories": {
     "doc": "docs"
   },
