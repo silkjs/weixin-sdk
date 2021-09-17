@@ -1,4 +1,4 @@
-import { Apis, Configs, RefreshFn } from "../models/weixin.model";
+import { Apis, Configs, RefreshFn } from "../models/weixin.model.js";
 
 type CommandOptions = {
   [key: string]: any;

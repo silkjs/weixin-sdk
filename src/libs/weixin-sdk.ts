@@ -1,5 +1,5 @@
-import { WeiXinSdkCore } from "./core";
-import { RefreshFn } from "../models/weixin.model";
+import { WeiXinSdkCore } from "./core.js";
+import { RefreshFn } from "../models/weixin.model.js";
 
 export class WeiXinSdk extends WeiXinSdkCore {
   constructor(options: { refresh: RefreshFn }) {
