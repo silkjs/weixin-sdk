@@ -19,8 +19,20 @@
     "type": "git",
     "url": "git+https://github.com/silkjs/weixin-sdk.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "weixin",
+    "jssdk"
+  ],
+  "authors": [
+    {
+      "name": "dasoncheng",
+      "email": "dasoncheng@outlook.com"
+    },
+    {
+      "name": "dasoncheng",
+      "email": "dasoncheng@outlook.com"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/silkjs/weixin-sdk/issues"
