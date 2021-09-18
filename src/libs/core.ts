@@ -1,4 +1,4 @@
-import { md5 } from "src/utils/forge.js";
+import { md5 } from "../utils/forge.js";
 import { Apis, SignatureFn, Tags } from "../models/weixin.model.js";
 interface CommandActions<T> {
   success: (res: any) => T; // 接口调用成功时执行的回调函数。
