@@ -50,7 +50,7 @@ export class WeiXinSdkCore {
    * @param action 接口名称
    * @param options 接口参数
    */
-  command<T = void>(
+  command<T = any>(
     operation: Apis,
     options: CommandOptions = {},
     actions: CommandActions<T> = {}

@@ -1,6 +1,6 @@
 {
   "name": "@silkjs/weixin-sdk",
-  "version": "0.0.4-3",
+  "version": "0.0.5",
   "description": "微信JS-SDK",
   "type": "module",
   "main": "./dist/main.js",
