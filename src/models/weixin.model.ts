@@ -50,9 +50,5 @@ interface WeiXinSignature {
   signature: string; // 签名
   url: string; // 地址链接
 }
-export interface Configs extends WeiXinSignature {
-  jsApiList: Apis[]; // 需要使用的JS接口列表
-  openTagList?: Tags[];
-}
 
-export type RefreshFn = (url: string) => Promise<WeiXinSignature>;
+export type SignatureFn = (url: string) => Promise<WeiXinSignature>;
