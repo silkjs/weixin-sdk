@@ -15,14 +15,14 @@ export class WeiXinSdk extends WeiXinSdkCore {
    * @param from 己方姓名
    * @returns 招呼话术
    */
-  SayHello(name: string, from: string): string {
+  SayHello(name: string, from: string) {
     return `Hi, ${name}! I'm your new neighbor, my name is ${from}`;
   }
   /**
    * 获取网络状态接口
    * @returns <"2g" | "3g" | "4g" | "wifi">
    */
-  getNetworkType(): Promise<"2g" | "3g" | "4g" | "wifi"> {
+  getNetworkType() {
     return this.command<"2g" | "3g" | "4g" | "wifi">(
       "getNetworkType",
       {},
@@ -48,7 +48,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     desc: string; // 分享描述
     link: string; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: string; // 分享图标
-  }): Promise<void> {
+  }) {
     return this.command("updateAppMessageShareData", {
       title: options.title,
       desc: options.desc,
@@ -64,7 +64,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     title: string; // 分享标题
     link: string; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: string; // 分享图标
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       title: options.title,
       link: options.link,
@@ -79,7 +79,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     title: string; // 分享标题
     link: string; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: string; // 分享图标
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       title: options.title,
       link: options.link,
@@ -97,7 +97,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     imgUrl: string; // 分享图标
     type: string; // 分享类型,music、video或link，不填默认为link
     dataUrl: string; // 如果type是music或video，则要提供数据链接，默认为空
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       title: options.title,
       desc: options.desc,
@@ -116,7 +116,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     desc: string; // 分享描述
     link: string; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: string; // 分享图标
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       title: options.title,
       desc: options.desc,
@@ -132,7 +132,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     desc: string; // 分享描述
     link: string; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: string; // 分享图标
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       title: options.title,
       desc: options.desc,
@@ -149,7 +149,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     desc: string; // 分享描述
     link: string; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: string; // 分享图标
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       title: options.title,
       desc: options.desc,
@@ -160,26 +160,26 @@ export class WeiXinSdk extends WeiXinSdkCore {
   /**
    * 开始录音接口
    */
-  startRecord(): Promise<void> {
+  startRecord() {
     return this.command("updateTimelineShareData");
   }
   /**
    * 停止录音接口
    */
-  stopRecord(): Promise<void> {
+  stopRecord() {
     return this.command("updateTimelineShareData");
   }
   /**
    * 监听录音自动停止接口
    */
-  onVoiceRecordEnd(): Promise<void> {
+  onVoiceRecordEnd() {
     return this.command("updateTimelineShareData");
   }
   /**
    * 播放语音接口
    * @param localId 需要播放的音频的本地ID，由stopRecord接口获得
    */
-  playVoice(localId: string): Promise<void> {
+  playVoice(localId: string) {
     return this.command("updateTimelineShareData", {
       localId,
     });
@@ -188,7 +188,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
    * 暂停播放接口
    * @param localId 需要暂停的音频的本地ID，由stopRecord接口获得
    */
-  pauseVoice(localId: string): Promise<void> {
+  pauseVoice(localId: string) {
     return this.command("updateTimelineShareData", {
       localId,
     });
@@ -197,7 +197,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
    * 停止播放接口
    * @param localId 需要停止的音频的本地ID，由stopRecord接口获得
    */
-  stopVoice(localId: string): Promise<void> {
+  stopVoice(localId: string) {
     return this.command("updateTimelineShareData", {
       localId,
     });
@@ -205,7 +205,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   /**
    * 监听语音播放完毕接口
    */
-  onVoicePlayEnd(): Promise<void> {
+  onVoicePlayEnd() {
     return this.command("updateTimelineShareData");
   }
   /**
@@ -214,7 +214,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   uploadVoice(options: {
     localId: string; // 需要上传的音频的本地ID，由stopRecord接口获得
     isShowProgressTips: number; // 默认为1，显示进度提示
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       localId: options.localId,
       isShowProgressTips: options.isShowProgressTips,
@@ -226,7 +226,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   downloadVoice(options: {
     serverId: string; // 需要下载的音频的服务器端ID，由uploadVoice接口获得
     isShowProgressTips: number; // 默认为1，显示进度提示
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       serverId: options.serverId,
       isShowProgressTips: options.isShowProgressTips,
@@ -239,7 +239,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     count: number; // 默认9
     sizeType: Array<"original" | "compressed">; // 可以指定是原图还是压缩图，默认二者都有
     sourceType: Array<"album" | "camera">; // 可以指定来源是相册还是相机，默认二者都有
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       count: options.count,
       sizeType: options.sizeType,
@@ -252,7 +252,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   previewImage(options: {
     current: string; // 当前显示图片的http链接
     urls: string[]; // 需要预览的图片http链接列表
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       current: options.current,
       urls: options.urls,
@@ -264,7 +264,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   uploadImage(options: {
     localId: string; // 需要上传的图片的本地ID，由chooseImage接口获得
     isShowProgressTips: number; // 默认为1，显示进度提示
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       localId: options.localId,
       isShowProgressTips: options.isShowProgressTips,
@@ -276,7 +276,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   downloadImage(options: {
     serverId: string; // 需要下载的图片的服务器端ID，由uploadImage接口获得
     isShowProgressTips: number; // 默认为1，显示进度提示
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       serverId: options.serverId,
       isShowProgressTips: options.isShowProgressTips,
@@ -288,7 +288,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   translateVoice(options: {
     localId: string; // 需要识别的音频的本地Id，由录音相关接口获得
     isShowProgressTips: number; // 默认为1，显示进度提示
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       localId: options.localId,
       isShowProgressTips: options.isShowProgressTips,
@@ -304,7 +304,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     address: string; // 地址详情说明
     scale: number; // 地图缩放级别,整型值,范围从1~28。默认为最大
     infoUrl: string; // 在查看位置界面底部显示的超链接,可点击跳转
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       latitude: options.latitude,
       longitude: options.longitude,
@@ -318,7 +318,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
    * 获取地理位置接口
    * @param type 坐标类型
    */
-  getLocation(type: "wgs84" | "gcj02"): Promise<void> {
+  getLocation(type: "wgs84" | "gcj02") {
     return this.command("updateTimelineShareData", {
       type,
     });
@@ -327,7 +327,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
    * 批量隐藏功能按钮接口
    * @param menuList 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
    */
-  hideMenuItems(menuList: string[]): Promise<void> {
+  hideMenuItems(menuList: string[]) {
     return this.command("updateTimelineShareData", {
       menuList,
     });
@@ -336,7 +336,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
    * 批量显示功能按钮接口
    * @param menuList 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
    */
-  showMenuItems(menuList: string[]): Promise<void> {
+  showMenuItems(menuList: string[]) {
     return this.command("updateTimelineShareData", {
       menuList,
     });
@@ -344,19 +344,19 @@ export class WeiXinSdk extends WeiXinSdkCore {
   /**
    * 隐藏所有非基础按钮接口
    */
-  hideAllNonBaseMenuItem(): Promise<void> {
+  hideAllNonBaseMenuItem() {
     return this.command("updateTimelineShareData");
   }
   /**
    * 显示所有功能按钮接口
    */
-  showAllNonBaseMenuItem(): Promise<void> {
+  showAllNonBaseMenuItem() {
     return this.command("updateTimelineShareData");
   }
   /**
    * 关闭当前网页窗口接口
    */
-  closeWindow(): Promise<void> {
+  closeWindow() {
     return this.command("updateTimelineShareData");
   }
   /**
@@ -365,7 +365,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   scanQRCode(options: {
     needResult: number; // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
     scanType: Array<"qrCode" | "barCode">; // 可以指定扫二维码还是一维码，默认二者都有
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       needResult: options.needResult,
       scanType: options.scanType,
@@ -380,7 +380,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     package: string; // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
     signType: string; // 微信支付V3的传入RSA,微信支付V2的传入格式与V2统一下单的签名格式保持一致
     paySign: string; // 支付签名
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       timestamp: options.timestamp,
       nonceStr: options.nonceStr,
@@ -395,7 +395,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
   openProductSpecificView(options: {
     productId: string; // 商品id
     viewType: string; // 0.默认值，普通商品详情页1.扫一扫商品详情页2.小店商品详情页
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       productId: options.productId,
       viewType: options.viewType,
@@ -410,7 +410,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
       cardId: string;
       cardExt: string;
     }>
-  ): Promise<void> {
+  ) {
     return this.command("updateTimelineShareData", {
       cardList: options,
     });
@@ -426,7 +426,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
     nonceStr: string; // 卡券签名随机串
     signType: string; // 签名方式，默认'SHA1'
     cardSign: string; // 卡券签名
-  }): Promise<void> {
+  }) {
     return this.command("updateTimelineShareData", {
       shopId: options.shopId,
       cardType: options.cardType,
@@ -446,7 +446,7 @@ export class WeiXinSdk extends WeiXinSdkCore {
       cardId: string;
       code: string;
     }>
-  ): Promise<void> {
+  ) {
     return this.command("updateTimelineShareData", {
       cardList: options,
     });
