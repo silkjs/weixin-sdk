@@ -20,6 +20,7 @@
     "radix": "error",
     // "no-shadow": ["error", { "hoist": "all" }],
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"]
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
