@@ -1,13 +1,25 @@
-import { WeiXinSdkCore } from "./core.js";
-import { Apis, SignatureFn, Tags } from "../models/weixin.model.js";
+import { SDKOptions, WeiXinSdkCore } from "./core.js";
 
 export class WeiXinSdk extends WeiXinSdkCore {
-  constructor(options: {
-    signature: SignatureFn;
-    jsApiList: Apis[];
-    openTagList?: Tags[];
-  }) {
+  constructor(options: SDKOptions) {
     super(options);
+  }
+
+  /**
+   * 网页登录授权
+   * @param redirect 回调地址
+   * @returns
+   */
+  async sign(redirect: string) {
+    const url = new URL(
+      "https://open.weixin.qq.com/connect/oauth2/authorize#wechat_redirect"
+    );
+    url.searchParams.append("appid", this.appid);
+    url.searchParams.append("redirect_uri", redirect);
+    url.searchParams.append("response_type", "code");
+    url.searchParams.append("scope", "snsapi_userinfo");
+    url.searchParams.append("state", "STATE");
+    return url.toString();
   }
   /**
    * 获取网络状态

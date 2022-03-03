@@ -11,18 +11,23 @@ interface CommandOptions {
   [key: string]: any;
 }
 
+export interface SDKOptions {
+  appid: string;
+  signature: SignatureFn;
+  jsApiList: Apis[];
+  openTagList?: Tags[];
+}
+
 export class WeiXinSdkCore {
+  public readonly appid: string;
   private readonly _wx = Reflect.get(window, "wx") ?? {};
   private readonly authenticated = new Set<string>();
   private readonly signature: SignatureFn;
   private readonly jsApiList: Apis[];
   private readonly openTagList: Tags[];
 
-  constructor(options: {
-    signature: SignatureFn;
-    jsApiList: Apis[];
-    openTagList?: Tags[];
-  }) {
+  constructor(options: SDKOptions) {
+    this.appid = options.appid;
     this.signature = options.signature;
     this.jsApiList = options.jsApiList;
     this.openTagList = options.openTagList ?? [];
