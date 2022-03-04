@@ -6,22 +6,6 @@ export class WeiXinSdk extends WeiXinSdkCore {
   }
 
   /**
-   * 网页登录授权
-   * @param redirect 回调地址
-   * @returns
-   */
-  async sign(redirect: string) {
-    const url = new URL(
-      "https://open.weixin.qq.com/connect/oauth2/authorize#wechat_redirect"
-    );
-    url.searchParams.append("appid", this.appid);
-    url.searchParams.append("redirect_uri", redirect);
-    url.searchParams.append("response_type", "code");
-    url.searchParams.append("scope", "snsapi_userinfo");
-    url.searchParams.append("state", "STATE");
-    return url.toString();
-  }
-  /**
    * 获取网络状态
    * @returns <"2g" | "3g" | "4g" | "wifi">
    */

@@ -18,11 +18,12 @@
 npm install --save @silkjs/weixin-sdk
 ```
 
-| 参数        | 类型     | 说明               |
-| ----------- | -------- | ------------------ |
-| signature   | Function | 鉴权函数           |
-| jsApiList   | Apis[]   | 需要使用的接口列表 |
-| openTagList | Tags[]   | 需要用的的标签列表 |
+| 参数        | 类型     | 必填  | 说明                         |
+| ----------- | -------- | ----- | ---------------------------- |
+| signature   | Function | true  | 鉴权函数                     |
+| jsApiList   | Apis[]   | true  | 需要使用的接口列表           |
+| openTagList | Tags[]   | false | 需要用的的标签列表；默认`[]` |
+| debug       | boolean  | false | 调试模式；默认`false `       |
 
 > utils/weixin-sdk.ts
 
@@ -37,7 +38,6 @@ export const sdk = new WeiXinSdk({
       timestamp: config.timestamp,
       nonceStr: config.nonce_str,
       signature: config.signature,
-      url,
     };
   },
   jsApiList: ["getNetworkType", "closeWindow"],
@@ -53,6 +53,14 @@ export const sdk = new WeiXinSdk({
 import { sdk } from "{path}/utils/weixin-sdk.ts";
 
 async function App {
+  // 网页授权链接
+  sdk.authorize({
+    appid: "<appid>",
+    redirect_uri: "<redirect_uri>",
+    response_type: "<response_type>",
+    scope: "<scope>",
+    state: "<state>",
+  })
   // 主动初始化
   await sdk.init()
   // 获取网络状态
