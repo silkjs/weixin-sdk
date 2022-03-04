@@ -1,14 +1,10 @@
-import { WeiXinSdkCore } from "./core.js";
-import { Apis, SignatureFn, Tags } from "../models/weixin.model.js";
+import { SDKOptions, WeiXinSdkCore } from "./core.js";
 
 export class WeiXinSdk extends WeiXinSdkCore {
-  constructor(options: {
-    signature: SignatureFn;
-    jsApiList: Apis[];
-    openTagList?: Tags[];
-  }) {
+  constructor(options: SDKOptions) {
     super(options);
   }
+
   /**
    * 获取网络状态
    * @returns <"2g" | "3g" | "4g" | "wifi">

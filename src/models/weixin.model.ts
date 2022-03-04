@@ -48,7 +48,6 @@ interface WeiXinSignature {
   timestamp: string; // 生成签名的时间戳
   nonceStr: string; // 生成签名的随机串
   signature: string; // 签名
-  url: string; // 地址链接
 }
 
 export type SignatureFn = (url: string) => Promise<WeiXinSignature>;
