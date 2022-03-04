@@ -23,4 +23,7 @@ npm publish --access public
 
 # 删除指定版本,超过24小时就不能删除了。删除后24小时内相同版本不能再publish
 npm unpublish @silkjs/weixin-sdk@1.0.0 --force
+
+# 遗弃指定版本
+npm deprecate @silkjs/weixin-sdk@0.0.8 "this package has been deprecated"
 ```
