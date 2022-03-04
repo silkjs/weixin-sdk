@@ -23,7 +23,7 @@ npm install --save @silkjs/weixin-sdk
 | signature   | Function | true  | 鉴权函数                     |
 | jsApiList   | Apis[]   | true  | 需要使用的接口列表           |
 | openTagList | Tags[]   | false | 需要用的的标签列表；默认`[]` |
-| debug       | boolean  | false | 调试模式；默认`false `       |
+| debug       | boolean  | false | 调试模式；默认`false`       |
 
 > utils/weixin-sdk.ts
 
